@@ -1,6 +1,6 @@
 {
   "name": "protractor-jasmine2-parallel-html-reporter",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Creates html reports for protractor jasmine2 tests run in parallel. Consolidates reports by platform, browser, and version. Supports multicapabilities and shardTestFiles.",
   "main": "src/protractor-jasmine2-parallel-html-reporter.cjs.js",
   "module": "src/protractor-jasmine2-parallel-html-reporter.es6.js",
