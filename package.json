@@ -1,0 +1,68 @@
+{
+  "name": "protractor-jasmine2-parallel-html-reporter",
+  "version": "1.0.0",
+  "description": "Creates html reports for protractor jasmine2 tests run in parallel. Consolidates reports by platform, browser, and version. Supports multicapabilities and shardTestFiles.",
+  "main": "src/protractor-jasmine2-parallel-html-reporter.cjs.js",
+  "module": "src/protractor-jasmine2-parallel-html-reporter.es6.js",
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "npm run clean:coverage && npm run clean:nyc_output && npm run clean:src",
+    "clean:coverage": "rm -rf coverage",
+    "clean:nyc_output": "rm -rf .nyc_output",
+    "clean:src": "rm -rf src",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "dev": "rollup -c -w",
+    "lint": "eslint --fix lib test",
+    "posttest": "npm run report",
+    "prebuild": "npm run clean && npm run lint",
+    "prepare": "npm test",
+    "pretest": "npm run build",
+    "report": "nyc report --reporter=html",
+    "test": "nyc ava"
+  },
+  "dependencies": {
+    "consolidator": "^1.0.0",
+    "fs-extra-promise": "^1.0.1",
+    "is": "^3.2.1",
+    "protractor-jasmine2-html-reporter": "^0.0.7",
+    "uuid": "^3.1.0",
+    "walk-sync": "^0.3.2"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.0",
+    "babelrc-rollup": "^3.0.0",
+    "codecov": "^2.2.0",
+    "eslint": "^4.3.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "nyc": "^11.1.0",
+    "prettier": "^1.5.3",
+    "randomatic": "^1.1.7",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^4.3.1",
+    "sinon": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter.git"
+  },
+  "author": "Anthony Telljohann-Smothers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter/issues"
+  },
+  "homepage": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter#readme",
+  "files": ["src"],
+  "ava": {
+    "require": ["babel-core/register"],
+    "color": true,
+    "concurrency": 25,
+    "failFast": false,
+    "failWithoutAssertions": true,
+    "tap": false,
+    "verbose": true
+  }
+}
