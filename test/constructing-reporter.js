@@ -1,5 +1,5 @@
 import test from 'ava'
-import ProtractorJasmine2ParallelHtmlReporter from '../src/protractor-jasmine2-parallel-html-reporter.es6.js'
+import ProtractorJasmine2ParallelHtmlReporter from '../lib/protractor-jasmine2-parallel-html-reporter.js'
 
 test('reports directory should be a string', t => {
   const error = t.throws(() => {
