@@ -1,9 +1,7 @@
 import spec from 'ava-spec'
 import { isInstance, throwsNonEmptyStringTypeError, throwsStringTypeError } from './macros/_constructor.js'
-import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
 var scenario
-
 var currentSuite = spec.describe('constructing')
 scenario = currentSuite.describe('without reports directory')
 scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter()`)
