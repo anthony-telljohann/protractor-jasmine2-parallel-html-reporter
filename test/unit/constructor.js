@@ -27,7 +27,7 @@ suite.beforeEach(() => {
 })
 
 scenario = suite.describe('without reports directory')
-secnario.beforeEach(() => {
+scenario.beforeEach(() => {
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
 })
 scenario(
