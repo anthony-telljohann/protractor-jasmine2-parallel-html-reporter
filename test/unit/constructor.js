@@ -66,8 +66,7 @@ scenario = currentSuite.describe('undefined')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(undefined),
 				TypeError
 			)
@@ -79,8 +78,7 @@ scenario = currentSuite.describe('null')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = (
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(null),
 				TypeError
 			)
@@ -92,8 +90,7 @@ scenario = currentSuite.describe('true')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(true),
 				TypeError
 			)
@@ -105,8 +102,7 @@ scenario = currentSuite.describe('false')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(false),
 				TypeError
 			)
@@ -118,8 +114,7 @@ scenario = suite.describe('number')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(123),
 				TypeError
 			)
@@ -131,8 +126,7 @@ scenario = suite.describe('function')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(function(){}),
 				TypeError
 			)
@@ -144,8 +138,7 @@ scenario = suite.describe('object')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error =
-			assert.throws(
+		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter({}),
 				TypeError
 			)
