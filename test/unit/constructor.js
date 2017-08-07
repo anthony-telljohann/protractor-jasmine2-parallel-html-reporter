@@ -69,7 +69,7 @@ suite.beforeEach(() => {
 subject = suite.describe('undefined')
 
 subject(
-	`should throw ${typeof expected.error.type} "${expected.error.message}"`,
+	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
