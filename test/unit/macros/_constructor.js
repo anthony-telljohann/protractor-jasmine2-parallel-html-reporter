@@ -1,5 +1,3 @@
-
-
 const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING =
 	'reports directory should be a non-empty string'
 const REPORTS_DIRECTORY_SHOULD_BE_A_STRING =
