@@ -69,7 +69,7 @@ scenario.beforeEach(assert => {
   reportsDirectory = ' '
 })
 scenario(
-	`should throw TypeError "${expected.error.message}"`,
+	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`,
 	assert => {
 		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
@@ -90,7 +90,7 @@ scenario.beforeEach(() => {
   reportsDirectory = undefined
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -107,7 +107,7 @@ scenario.beforeEach(() => {
   reportsDirectory = null
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -124,7 +124,7 @@ scenario.beforeEach(() => {
   reportsDirectory = true
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -141,7 +141,7 @@ scenario.beforeEach(() => {
   reportsDirectory = false
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -158,7 +158,7 @@ scenario.beforeEach(() => {
   reportsDirectory = 123
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -175,7 +175,7 @@ scenario.beforeEach(() => {
   reportsDirectory = function() {}
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
@@ -192,7 +192,7 @@ scenario.beforeEach(() => {
   reportsDirectory = {}
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
 		actual.error = setError(
 			assert.throws(
