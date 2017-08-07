@@ -6,54 +6,48 @@ const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING =
 	'reports directory should be a non-empty string'
 const REPORTS_DIRECTORY_SHOULD_BE_A_STRING =
 	'reports directory should be a string'
-const should = {
- return: {
-    instance: `should return an instance of ProtractorJasmine2ParallelHtmlReporter`
- },
- throw: {
-    typeError: {
-      nonEmptyString: `should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`,
-      string: `should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`
-    }
- }
+
+function isInstance(assert, input) {
+	assert.true(is.instance(eval(input), ProtractorJasmine2ParallelHtmlReporter))
 }
-const test = {
-  returns: {
-    instance: (value) => (assert) => { assert.true(is.instance(new ProtractorJasmine2ParallelHtmlReporter(value), ProtractorJasmine2ParallelHtmlReporter))}
-  },
-  throws: {
-    typeError: {
-      nonEmptyString: (value) => (assert) => { assert.is(assert.throws(() => new ProtractorJasmine2ParallelHtmlReporter(value), TypeError).message, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING)},
-      string: (value) => (assert) => { assert.is(assert.throws(() => new ProtractorJasmine2ParallelHtmlReporter(value), TypeError).message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)}
-    }
-  }
+isInstance.title = (providedTitle, input, expected) => `${input} should return instance of ProtractorJasmine2ParallelHtmlReporter`;
+
+function throwsNonEmptyStringTypeError(assert, input, expected) {
+	assert.is(assert.throws(() => eval(input)).message, TypeError)).message, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING)
 }
+throwsNonEmptyStringTypeError.title = (providedTitle, input, expected) => `${input} should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`;
+
+function throwsStringTypeError(assert, input, expected) {
+	assert.is(assert.throws(() => eval(input)).message, TypeError)).message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
+}
+throwsStringTypeError.title = (providedTitle, input, expected) => `${input} should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`;
+
 const suite = spec.describe('constructing')
 
 var scenario
 var currentSuite = suite
 
 scenario = currentSuite.describe('without reports directory')
-scenario(should.return.instance, test.returns.instance())
-
+scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter()`)
 currentSuite = suite.describe('with reports directory as')
 scenario = currentSuite.describe('undefined')
-scenario(should.return.instance, test.returns.instance(undefined))
+scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter(undefined)`)
 scenario = currentSuite.describe('non-empty string')
-scenario(should.return.instance, test.returns.instance('reports/'))
+scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter('reports/')`)
 
 scenario = currentSuite.describe('empty string')
-scenario(should.throw.typeError.nonEmptyString, test.throws.typeError.nonEmptyString(' '))
-scenario = currentSuite.describe('null')
+scenario(throwsNonEmptyStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(' ')`)
 
-scenario(should.throw.typeError.string, test.throws.typeError.string(null))
+scenario = currentSuite.describe('null')
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(null)`)
+
 scenario = currentSuite.describe('true')
-scenario(should.throw.typeError.string, test.throws.typeError.string(true))
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(true)`)
 scenario = currentSuite.describe('false')
-scenario(should.throw.typeError.string, test.throws.typeError.string(false))
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(false)`)
 scenario = currentSuite.describe('number')
-scenario(should.throw.typeError.string, test.throws.typeError.string(123))
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(number)`)
 scenario = currentSuite.describe('function')
-scenario(should.throw.typeError.string, test.throws.typeError.string(function(){}))
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(function)`)
 scenario = suite.describe('object')
-scenario(should.throw.typeError.string, test.throws.typeError.string({}))
+scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(object)`)
