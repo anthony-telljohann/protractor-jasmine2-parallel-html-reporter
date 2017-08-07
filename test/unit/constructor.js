@@ -7,7 +7,7 @@ const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING =
 const REPORTS_DIRECTORY_SHOULD_BE_A_STRING =
 	'reports directory should be a string'
 
-var suite
+var currentSuite
 var scenario
 
 var actual
@@ -25,9 +25,10 @@ spec.beforeEach(() => {
   reportsDirectory = undefined
 })
 
-suite = spec.describe('constructing')
+const suite = spec.describe('constructing')
+currentSuite = suite
 
-scenario = suite.describe('without reports directory')
+scenario = currentSuite.describe('without reports directory')
 scenario.beforeEach(() => {
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
 })
@@ -43,9 +44,8 @@ scenario(
 	}
 )
 
-suite = suite.describe('with reports directory as')
-
-scenario = suite.describe('non-empty string')
+currentSuite = suite.describe('with reports directory as')
+scenario = currentSuite.describe('non-empty string')
 scenario.beforeEach(() => {
   reportsDiretory = 'reports/'
   reporter = new ProtractorJasmine2ParallelHtmlReporter(reportsDiretory)
@@ -62,7 +62,7 @@ scenario(
 	}
 )
 
-scenario = suite.describe('empty string')
+scenario = currentSuite.describe('empty string')
 scenario.beforeEach(assert => {
 	expected.error.type = TypeError
 	expected.error.message = REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING
@@ -79,76 +79,72 @@ scenario(
   }
 )
 
-suite = suite.describe('non-string')
-suite.beforeEach(() => {
+currentSuite = currentSuite.describe('non-string')
+currentSuite.beforeEach(() => {
 	expected.error.type = TypeError
 	expected.error.message = REPORTS_DIRECTORY_SHOULD_BE_A_STRING
 })
 
-scenario = suite.describe('undefined')
+scenario = currentSuite.describe('undefined')
 scenario.beforeEach(() => {
   reportsDirectory = undefined
 })
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error =
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
 
-scenario = suite.describe('null')
+scenario = currentSuite.describe('null')
 scenario.beforeEach(() => {
   reportsDirectory = null
 })
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error = (
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
 
-scenario = suite.describe('true')
+scenario = currentSuite.describe('true')
 scenario.beforeEach(() => {
   reportsDirectory = true
 })
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error = 
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
 
-scenario = suite.describe('false')
+scenario = currentSuite.describe('false')
 scenario.beforeEach(() => {
   reportsDirectory = false
 })
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error = 
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
-			)
-		)
+			)	
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
@@ -160,12 +156,11 @@ scenario.beforeEach(() => {
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error = 
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
@@ -177,12 +172,11 @@ scenario.beforeEach(() => {
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error = 
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
@@ -194,12 +188,11 @@ scenario.beforeEach(() => {
 scenario(
 		`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = setError(
+		actual.error =
 			assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
 				expected.error.type
 			)
-		)
 		assert.is(actual.error.message, expected.error.message)
 	}
 )
