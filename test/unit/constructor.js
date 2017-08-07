@@ -15,15 +15,17 @@ var expected
 var reporter
 var reportsDirectory
 
-suite = spec.describe('constructing')
-suite.beforeEach(() => {
+spec.beforeEach(() => {
   actual = {}
   actual.error = {}
   expected = {}
+  expected.error
   expected.error = {}
   reporter = undefined
   reportsDirectory = undefined
 })
+
+suite = spec.describe('constructing')
 
 scenario = suite.describe('without reports directory')
 scenario.beforeEach(() => {
@@ -67,7 +69,7 @@ scenario.beforeEach(assert => {
   reportsDirectory = ' '
 })
 scenario(
-	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
+	`should throw TypeError "${expected.error.message}"`,
 	assert => {
 		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
