@@ -1,5 +1,0 @@
-export = {
-  isInstance,
-  throwsNonEmptyStringTypeError
-  throwsStringTypeError
-}
