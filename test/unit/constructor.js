@@ -32,7 +32,7 @@ const test = {
 }
 
 const suite = spec.describe('constructing')
-currentSuite = suite
+var currentSuite = suite
 
 scenario = currentSuite.describe('without reports directory')
 scenario(should.return.instance, test.returns.instance())
