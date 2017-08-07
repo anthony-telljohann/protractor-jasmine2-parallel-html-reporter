@@ -1,8 +1,4 @@
-export {
-  isInstance,
-  throwsNonEmptyStringTypeError,
-  throwsStringTypeError
-}
+
 
 const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING =
 	'reports directory should be a non-empty string'
@@ -24,4 +20,8 @@ function throwsStringTypeError(assert, input, expected) {
 }
 throwsStringTypeError.title = (providedTitle, input, expected) => `${input} should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`
 
-
+export {
+  isInstance,
+  throwsNonEmptyStringTypeError,
+  throwsStringTypeError
+}
