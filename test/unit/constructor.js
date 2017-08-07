@@ -52,24 +52,17 @@ scenario = currentSuite.describe('empty string')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(' '),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(' ') }, TypeError
+		)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING)
   }
 )
-
-currentSuite = currentSuite.describe('non-string')
 
 scenario = currentSuite.describe('undefined')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(undefined),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(undefined) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -78,10 +71,7 @@ scenario = currentSuite.describe('null')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(null),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(null) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -90,10 +80,7 @@ scenario = currentSuite.describe('true')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(true),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(true) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -102,10 +89,7 @@ scenario = currentSuite.describe('false')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(false),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(false) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -114,10 +98,7 @@ scenario = suite.describe('number')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(123),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(123) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -126,10 +107,7 @@ scenario = suite.describe('function')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter(function(){}),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter(function() {}) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
@@ -138,10 +116,7 @@ scenario = suite.describe('object')
 scenario(
 	`should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`,
 	assert => {
-		actual.error = assert.throws(
-				new ProtractorJasmine2ParallelHtmlReporter({}),
-				TypeError
-			)
+		actual.error = assert.throws(() => { new ProtractorJasmine2ParallelHtmlReporter({}) }, TypeError)
 		assert.is(actual.error.message, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 	}
 )
