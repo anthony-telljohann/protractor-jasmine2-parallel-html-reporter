@@ -1,0 +1,5 @@
+export = {
+  isInstance,
+  throwsNonEmptyStringTypeError
+  throwsStringTypeError
+}
