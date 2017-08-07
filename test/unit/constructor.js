@@ -5,17 +5,19 @@ import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine
 var scenario
 
 var currentSuite = spec.describe('constructing')
-
 scenario = currentSuite.describe('without reports directory')
 scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter()`)
+
 
 currentSuite = currentSuite.describe('with reports directory as')
 scenario = currentSuite.describe('undefined')
 scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter(undefined)`)
 scenario = currentSuite.describe('non-empty string')
 scenario(isInstance, `new ProtractorJasmine2ParallelHtmlReporter('reports/')`)
+
 scenario = currentSuite.describe('empty string')
 scenario(throwsNonEmptyStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(' ')`)
+
 scenario = currentSuite.describe('null')
 scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(null)`)
 scenario = currentSuite.describe('true')
@@ -26,5 +28,5 @@ scenario = currentSuite.describe('number')
 scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(number)`)
 scenario = currentSuite.describe('function')
 scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(function)`)
-scenario = suite.describe('object')
+scenario = currentSuite.describe('object')
 scenario(throwsStringTypeError, `new ProtractorJasmine2ParallelHtmlReporter(object)`)
