@@ -1,12 +1,11 @@
 import spec from 'ava-spec'
 import is from 'is'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
+
 const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING =
 	'reports directory should be a non-empty string'
 const REPORTS_DIRECTORY_SHOULD_BE_A_STRING =
 	'reports directory should be a string'
-const shouldThrowTypeErrorReportsDirectoryShouldBeAString = `should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`
-const shouldThrowTypeErrorReportsDirectoryShouldBeANonEmptyString = `should throw TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`
 
 var suite
 var scenario
@@ -22,7 +21,7 @@ suite.beforeEach(() => {
   actual.error = {}
   expected = {}
   expected.error = {}
-	reporter = undefined
+  reporter = undefined
   reportsDirectory = undefined
 })
 
@@ -68,7 +67,7 @@ scenario.beforeEach(assert => {
   reportsDirectory = ' '
 })
 scenario(
-	`should throw ${typeof expected.error.type} "${expected.error.message}"`,
+	`should throw ${expected.error.type.toString()} "${expected.error.message}"`,
 	assert => {
 		actual.error = assert.throws(
 				new ProtractorJasmine2ParallelHtmlReporter(reportsDirectory),
