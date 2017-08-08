@@ -11,6 +11,16 @@ var fakeEnv
 var mockCapability
 var temporaryDirectory
 
+// move to test/functional/stubs/_browser.js
+// move to test/functional/stubs/_jasmine.js
+// move to test/functional/stubs/_capability.js
+// move to test/functional/mocks/_capability.js
+// move to test/functional/mocks/_jasmine-env.js
+
+// import browserStub
+// import jasmineStub
+// import mockCapability
+
 test.before(async () => {
   global.browser = {
     getCapabilities: sinon.stub()
@@ -59,6 +69,8 @@ test('should add reporter to jasmine environment once', t => {
   t.true(jasmine.getEnv().addReporter.calledOnce)
 })
 
+// import is
+// assert.true(is.instance(jasmine.getEnv().addReporter.getCall(0).args[0], ProtractorJasmine2HtmlReporter))
 test('reporter should be ProtractorJasmine2HtmlReporter', t => {
   t.is(typeof jasmine.getEnv().addReporter.getCall(0).args[0], typeof protractorJasmine2HtmlReporter)
 })
