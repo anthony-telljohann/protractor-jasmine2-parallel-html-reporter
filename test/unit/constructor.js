@@ -36,7 +36,7 @@ const assert = {
 }
 
 var scenario
-var currentSuite = spec.describe(`constructing`)
+var currentSuite = test.describe(`constructing`)
 scenario = currentSuite.describe(`without reports directory`)
 scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter()))
 
