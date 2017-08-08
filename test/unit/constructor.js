@@ -1,3 +1,4 @@
+
 import spec from 'ava-spec'
 import { isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from '../assertions/_assertions'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
