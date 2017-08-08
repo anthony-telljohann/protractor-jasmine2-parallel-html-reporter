@@ -19,7 +19,7 @@ const genericShould = {
 //todo: publish as ava macros
 const genericAssert = {
 	returnsInstanceOf: (actual, expected) => assert => assert.true(is.instance(actual, expected)),
-	throwsTypeErrorMessage: (actual, expected) => assert => assert.is(assert.throws(actual, TypeError).message, expected)
+	throwsTypeErrorMessage: (actual, expected) => assert => assert.is(assert.throws(actual(), TypeError).message, expected)
 }
 //todo: import from test/macros
 const should = {
@@ -46,7 +46,7 @@ scenario = currentSuite.describe(`non-empty string`)
 scenario(should.returnInstance, assert.returnsInstance(new ProtractorJasmine2ParallelHtmlReporter('reports/')))
 
 scenario = currentSuite.describe(`empty string`)
-scenario(should.throwTypeErrorNonEmptyString, assert.throwsTypeErrorNonEmptyString(new ProtractorJasmine2ParallelHtmlReporter(' ')))
+scenario(should.throwTypeErrorNonEmptyString, assert.throwsTypeErrorNonEmptyString(() => new ProtractorJasmine2ParallelHtmlReporter(' ')))
 
 scenario = currentSuite.describe(`null`)
 scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(new ProtractorJasmine2ParallelHtmlReporter(null)))
