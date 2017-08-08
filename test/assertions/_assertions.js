@@ -10,9 +10,9 @@ export const throwsErrorMessage = error => message => input => assert => { asser
 export const throwsTypeErrorMessage = throwsErrorMessage(TypeError)
 
 //specific to lib
-export const hasAddProperty = hasProperty('add')
-export const hasConsolidateReportsProperty = hasProperty('consolidateReports')
-export const isInstanceOfProtractorJasmine2ParallelHtmlReporter = isInstanceOf(ProtractorJasmine2ParallelHtmlReporter)
-export const isInstanceOfProtractorJasmine2HtmlReporter = isInstanceOf(ProtractorJasmine2ParallelHtmlReporter)
-export const throwsReportsDirectoryShouldBeANonEmptyString = throwsTypeErrorMessage('reports directory should be a non-empty string')
-export const throwsReportsDirectoryShouldBeAString = throwsTypeErrorMessage('reports directory should be a string')
+export const hasAddProperty = input => hasProperty('add')(input)
+export const hasConsolidateReportsProperty = input => hasProperty('consolidateReports')(input)
+export const isInstanceOfProtractorJasmine2ParallelHtmlReporter = input => isInstanceOf(ProtractorJasmine2ParallelHtmlReporter)(input)
+export const isInstanceOfProtractorJasmine2HtmlReporter = input => isInstanceOf(ProtractorJasmine2ParallelHtmlReporter)(input)
+export const throwsReportsDirectoryShouldBeANonEmptyString = input => throwsTypeErrorMessage('reports directory should be a non-empty string')(input)
+export const throwsReportsDirectoryShouldBeAString = input => throwsTypeErrorMessage('reports directory should be a string')(input)
