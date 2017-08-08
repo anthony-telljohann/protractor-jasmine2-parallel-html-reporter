@@ -19,7 +19,7 @@ const genericShould = {
 //todo: publish as ava macros
 const genericAssert = {
 	returnsInstanceOf: (actual, expected) => assert => assert.true(is.instance(actual, expected)),
-	throwsTypeErrorMessage: (actual, expected) => assert => assert.is(assert.throws(actual(), TypeError).message, expected)
+	throwsTypeErrorMessage: (actual, expected) => assert => assert.is(assert.throws(() => { actual() }, TypeError).message, expected)
 }
 //todo: import from test/macros
 const should = {
