@@ -12,8 +12,12 @@ test.beforeEach(`construct reporter`, () => {
 test(`foo`, assert => {
   console.log('reporter', reporter);
 })
-test(`should have property add`, hasAddProperty(reporter))
-test(`should have property consolidateReports`, hasConsolidateReportsProperty(reporter))
+test(`should have property add`, assert => {
+  assert.true(is.fn(reporter.hasOwnProperty('add'))
+})
+test(`should have property consolidateReports`, assert => {
+  assert.true(is.fn(reporter.hasOwnProperty('consolidateReports')))
+})
 test(`add should be a function`, assert => {
   assert.true(is.fn(reporter.add))
 })
