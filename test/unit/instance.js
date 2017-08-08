@@ -1,4 +1,5 @@
 import test from 'ava'
+import is from 'is'
 import { hasAddProperty, hasConsolidateReportsProperty, isFunction } from '../assertions/_assertions'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
