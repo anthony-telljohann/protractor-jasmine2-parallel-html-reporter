@@ -1,63 +1,36 @@
-import test from 'ava-spec'
-
-import { isInstanceOfProtractorJasmine2ParallelHtmlReporter, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from '../assertions/_assertions'
+import spec from 'ava-spec'
+import { isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from '../assertions/_assertions'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
-//todo: recreate in lib/defaults
-//todo: import from lib/defaults
-const REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING = `reports directory should be a non-empty string`
-const REPORTS_DIRECTORY_SHOULD_BE_A_STRING = `reports directory should be a string`
-
-//todo: publish as ava macros
-const genericShould = {
-	return: {
-		instanceOf: object => `should return instance of ${typeof object}`
-	},
-	throw: {
-		error: (error, message) => `should throw ${typeof error} with message "${message}"`
-	}
+const given = {
+  reportsDirectory: (value) => `given reports directory is ${value}`
 }
-//todo: publish as ava macros
-const genericAssert = {
-	returnsInstanceOf: (actual, expected) => assert => assert.true(is.instance(actual, expected)),
-	throwsTypeErrorMessage: (actual, expected) => assert => assert.is(assert.throws(() => { actual() }, TypeError).message, expected)
-}
-//todo: import from test/macros
-const should = {
-	returnInstance: genericShould.return.instanceOf(ProtractorJasmine2ParallelHtmlReporter),
-	throwTypeErrorNonEmptyString: genericShould.throw.error(TypeError, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING),
-	throwTypeErrorString: genericShould.throw.error(TypeError, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
-}
-//todo: import from test/macros
-const assert = {
-	returnsInstance: input => genericAssert.returnsInstanceOf(input, ProtractorJasmine2ParallelHtmlReporter),
-	throwsTypeErrorNonEmptyString: input => genericAssert.throwsTypeErrorMessage(input, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING),
-	throwsTypeErrorString: input => genericAssert.throwsTypeErrorMessage(input, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
+const REPORTS_DIRECTORY = {
+ trimmedEmptyString: '',
+ untrimmedEmptyString: ' ',
+ nonEmptyString: `reports/`,
+ number: 123,
+  function: function() {},
+  object: {}
 }
 
-var scenario
-var currentSuite = test.describe(`constructing`)
-scenario = currentSuite.describe(`without reports directory`)
-scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter()))
+var test
+const subject = spec.describe(`constructor`)
+const scenario = subject.describe(`when constructing`)
 
-currentSuite = currentSuite.describe(`with reports directory as`)
-scenario = currentSuite.describe(`undefined`)
-scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter(undefined)))
-scenario = currentSuite.describe(`non-empty string`)
-scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter('reports/')))
+test = scenario.describe(`should return instance of ProtractorJasmine2ParallelHtmlReporter`)
+test(given.reportsDirectory(`not specified`), returnsInstance(new ProtractorJasmine2ParallelHtmlReporter())
+test(given.reportsDirectory(`undefined`), returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(undefined))
+test(given.reportsDirectory(`non-empty string ("${REPORTS_DIRECTORY.nonEmptyString}")`), returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.nonEmptyString)))
 
-scenario = currentSuite.describe(`empty string`)
-scenario(should.throwTypeErrorNonEmptyString, throwsReportsDirectoryShouldBeANonEmptyString(() => new ProtractorJasmine2ParallelHtmlReporter(' ')))
+test = scenario.describe(`should throw "reports directory should be a non-empty string"`)
+test(given.reportsDirectory(`empty string ("${REPORTS_DIRECTORY.trimmedEmptyString}")`), throwsReportsDirectoryShouldBeANonEmptyString(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.trimmedEmptyString))
+test(given.reportsDirectory(`empty string ("${REPORTS_DIRECTORY.untrimmedEmptyString}")`), throwsReportsDirectoryShouldBeANonEmptyString(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.untrimmedEmptyString))
 
-scenario = currentSuite.describe(`null`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(null)))
-scenario = currentSuite.describe(`true`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(true)))
-scenario = currentSuite.describe(`false`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(false)))
-scenario = currentSuite.describe(`number`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(123)))
-scenario = currentSuite.describe(`function`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(function() {})))
-scenario = currentSuite.describe(`object`)
-scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter({})))
+test = scenario.describe(`should throw "reports directory should be a string"`)
+test(given.reportsDirectory(`null`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(null))
+test(given.reportsDirectory(`true`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(true))
+test(given.reportsDirectory(`false`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(false)))
+test(given.reportsDirectory(`number (${REPORTS_DIRECTORY.number})`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.number))
+test(given.reportsDirectory(`function (${REPORTS_DIRECTORY.function})`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.function))
+test(given.reportsDirectory(`object (${REPORTS_DIRECTORY.object})`), throwsReportsDirectoryShouldBeAString(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.object)))
