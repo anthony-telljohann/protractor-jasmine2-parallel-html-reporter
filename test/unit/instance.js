@@ -13,5 +13,9 @@ test(`foo`, assert => {
 })
 test(`should have property add`, hasAddProperty(reporter))
 test(`should have property consolidateReports`, hasConsolidateReportsProperty(reporter))
-test(`add should be a function`, isFunction(reporter.add))
-test(`consolidateReports should be a function`, isFunction(reporter.consolidateReports))
+test(`add should be a function`, assert => {
+  assert.true(is.fn(reporter.add))
+})
+test(`consolidateReports should be a function`, assert => {
+  assert.true(is.fn(reporter.consolidateReports))
+})
