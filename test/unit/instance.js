@@ -3,7 +3,7 @@ import is from 'is'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
 const assert = {
-  hasProperty: (input, property) => (assert) => { assert.true(input.hasOwnProperty(property) },
+  hasProperty: (input, property) => (assert) => { assert.true(input.hasOwnProperty(property)) },
   isFunction: (input) => (assert) => { assert.true(is.fn(input)) }                                                        
 }
 
