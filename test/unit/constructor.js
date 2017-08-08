@@ -29,7 +29,7 @@ const should = {
 }
 //todo: import from test/macros
 const assert = {
-	returnsInstance: input => () => genericAssert.returnsInstanceOf(input, ProtractorJasmine2ParallelHtmlReporter),
+	returnsInstance: input => genericAssert.returnsInstanceOf(input, ProtractorJasmine2ParallelHtmlReporter),
 	throwsTypeErrorNonEmptyString: input => genericAssert.throwsTypeErrorMessage(input, REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING),
 	throwsTypeErrorString: input => genericAssert.throwsTypeErrorMessage(input, REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
 }
