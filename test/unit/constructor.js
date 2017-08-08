@@ -1,5 +1,6 @@
-import is from 'is'
-import spec from 'ava-spec'
+import test from 'ava-spec'
+
+import { isInstanceOfProtractorJasmine2ParallelHtmlReporter, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from '../assertions/_assertions'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
 //todo: recreate in lib/defaults
@@ -37,26 +38,26 @@ const assert = {
 var scenario
 var currentSuite = spec.describe(`constructing`)
 scenario = currentSuite.describe(`without reports directory`)
-scenario(should.returnInstance, assert.returnsInstance(new ProtractorJasmine2ParallelHtmlReporter()))
+scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter()))
 
 currentSuite = currentSuite.describe(`with reports directory as`)
 scenario = currentSuite.describe(`undefined`)
-scenario(should.returnInstance, assert.returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(undefined)))
+scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter(undefined)))
 scenario = currentSuite.describe(`non-empty string`)
-scenario(should.returnInstance, assert.returnsInstance(new ProtractorJasmine2ParallelHtmlReporter('reports/')))
+scenario(should.returnInstance, isInstanceOfProtractorJasmine2ParallelHtmlReporter(new ProtractorJasmine2ParallelHtmlReporter('reports/')))
 
 scenario = currentSuite.describe(`empty string`)
-scenario(should.throwTypeErrorNonEmptyString, assert.throwsTypeErrorNonEmptyString(() => new ProtractorJasmine2ParallelHtmlReporter(' ')))
+scenario(should.throwTypeErrorNonEmptyString, throwsReportsDirectoryShouldBeANonEmptyString(() => new ProtractorJasmine2ParallelHtmlReporter(' ')))
 
 scenario = currentSuite.describe(`null`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter(null)))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(null)))
 scenario = currentSuite.describe(`true`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter(true)))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(true)))
 scenario = currentSuite.describe(`false`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter(false)))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(false)))
 scenario = currentSuite.describe(`number`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter(123)))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(123)))
 scenario = currentSuite.describe(`function`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter(function() {})))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter(function() {})))
 scenario = currentSuite.describe(`object`)
-scenario(should.throwTypeErrorString, assert.throwsTypeErrorString(() => new ProtractorJasmine2ParallelHtmlReporter({})))
+scenario(should.throwTypeErrorString, throwsReportsDirectoryShouldBeAString(() => new ProtractorJasmine2ParallelHtmlReporter({})))
