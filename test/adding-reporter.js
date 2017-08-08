@@ -32,9 +32,7 @@ test.before(async () => {
     get: sinon.stub()
   }
   fakeCapabilities.get.withArgs('platform').returns(mockCapability.platform)
-  fakeCapabilities.get
-    .withArgs('browserName')
-    .returns(mockCapability.browserName)
+  fakeCapabilities.get.withArgs('browserName').returns(mockCapability.browserName)
   fakeCapabilities.get.withArgs('version').returns(mockCapability.version)
   browser.getCapabilities.resolves(fakeCapabilities)
 
@@ -62,22 +60,11 @@ test('should add reporter to jasmine environment once', t => {
 })
 
 test('reporter should be ProtractorJasmine2HtmlReporter', t => {
-  t.is(
-    typeof jasmine.getEnv().addReporter.getCall(0).args[0],
-    typeof protractorJasmine2HtmlReporter
-  )
+  t.is(typeof jasmine.getEnv().addReporter.getCall(0).args[0], typeof protractorJasmine2HtmlReporter)
 })
 
 test('reporter should save reports in temporary-directory/platform/browserName/version/', t => {
-  t.is(
-    jasmine.getEnv().addReporter.getCall(0).args[0].savePath,
-    path.join(
-      temporaryDirectory,
-      mockCapability.platform,
-      mockCapability.browserName,
-      mockCapability.version
-    )
-  )
+  t.is(jasmine.getEnv().addReporter.getCall(0).args[0].savePath, path.join(temporaryDirectory, mockCapability.platform, mockCapability.browserName, mockCapability.version))
 })
 
 test('reporter should not clean destination', t => {

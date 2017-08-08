@@ -16,7 +16,7 @@
     "prettier/prettier": [
       "error",
       {
-        "printWidth": 80,
+        "printWidth": 9999,
         "tabWidth": 2,
         "useTabs": false,
         "semi": false,
