@@ -18,6 +18,7 @@ var reporter
   
 test.beforeEach(`construct reporter`, () => {
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
+  console.log(reporter)
 })
 
 const instance = test.describe(INSTANCE)
