@@ -8,6 +8,8 @@ test.beforeEach(t => {
 })
 
 test(`functions`, t => {
+  t.true(true, `can i see this?`)
+  //t.isFunction(t.context.)
   t.true(is.fn(t.context.reporter.add), `add`)
   t.true(is.fn(t.context.reporter.consolidateReports), `consolidateReports`)
 })
@@ -16,15 +18,6 @@ test(t => {
   t.true(is.fn(t.context.reporter.consolidateReports))
 })
 
-test(`should have property`, t => {
-  t.true(is.fn(reporter.hasOwnProperty('foo')))
-})
-test(`should have property add`, assert => {
-  t.true(is.fn(reporter.hasOwnProperty('add')))
-})
-test(`should have property consolidateReports`, assert => {
-  t.true(is.fn(reporter.hasOwnProperty('consolidateReports')))
-})
 test(`add should be a function`, assert => {
   t.true(is.fn(reporter.add))
 })
