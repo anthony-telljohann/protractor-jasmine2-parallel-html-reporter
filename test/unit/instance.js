@@ -24,3 +24,17 @@ test(`add should be a function`, assert => {
 test(`consolidateReports should be a function`, assert => {
   t.true(is.fn(reporter.consolidateReports))
 })
+
+function macro(t, input, expected) {
+	t.is(eval(input), expected);
+}
+
+function macro(t, input, expected) {
+	t.is(eval(input), expected);
+}
+
+macro.title = (providedTitle, input, expected) => `${providedTitle} ${input} = ${expected}`.trim();
+
+test(macro, '2 + 2', 4);
+test(macro, '2 * 3', 6);
+test('providedTitle', macro, '3 * 3', 9);
