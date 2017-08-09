@@ -41,7 +41,7 @@ test(
 test = scenario.describe(
   `should throw "reports directory should be a non-empty string" ${given}`
 )
-given(
+test(
   `trimmed empty string ("${REPORTS_DIRECTORY.trimmedEmptyString}")`,
   throwsReportsDirectoryShouldBeANonEmptyString(() => {
     new ProtractorJasmine2ParallelHtmlReporter(
@@ -49,7 +49,7 @@ given(
     )
   })
 )
-given(
+test(
   `untrimmed empty string ("${REPORTS_DIRECTORY.untrimmedEmptyString}")`,
   throwsReportsDirectoryShouldBeANonEmptyString(() => {
     new ProtractorJasmine2ParallelHtmlReporter(
