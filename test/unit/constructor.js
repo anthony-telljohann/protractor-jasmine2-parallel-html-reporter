@@ -14,15 +14,11 @@ const REPORTS_DIRECTORY = {
   function: function() {},
   object: {}
 }
-const given = 'given reports directory is'
-
-var expectation
-var condition
-var when
-var then
-
+const given = `given reports directory is`
 const subject = spec.describe(`constructor`)
 const scenario = subject.describe(`when constructing`)
+
+var test
 
 test = scenario.describe(
   `should return instance of ProtractorJasmine2ParallelHtmlReporter ${given}`
