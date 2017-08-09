@@ -1,9 +1,5 @@
 import spec from 'ava-spec'
-import {
-  isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance,
-  throwsReportsDirectoryShouldBeANonEmptyString,
-  throwsReportsDirectoryShouldBeAString
-} from '../assertions/_assertions'
+import { isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from '../assertions/_assertions'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
 const REPORTS_DIRECTORY = {
@@ -19,47 +15,26 @@ const scenario = spec.describe(`constructing`)
 
 var test
 
-test = scenario.describe(
-  `should return instance of ProtractorJasmine2ParallelHtmlReporter ${given}`
-)
-test(
-  `not specified`,
-  returnsInstance(new ProtractorJasmine2ParallelHtmlReporter())
-)
-test(
-  `undefined`,
-  returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(undefined))
-)
-test(
-  `non-empty string ("${REPORTS_DIRECTORY.nonEmptyString}")`,
-  returnsInstance(
-    new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.nonEmptyString)
-  )
-)
+test = scenario.describe(`should return instance of ProtractorJasmine2ParallelHtmlReporter ${given}`)
+test(`not specified`, returnsInstance(new ProtractorJasmine2ParallelHtmlReporter()))
+test(`undefined`, returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(undefined)))
+test(`non-empty string ("${REPORTS_DIRECTORY.nonEmptyString}")`, returnsInstance(new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.nonEmptyString)))
 
-test = scenario.describe(
-  `should throw "reports directory should be a non-empty string" ${given}`
-)
+test = scenario.describe(`should throw "reports directory should be a non-empty string" ${given}`)
 test(
   `trimmed empty string ("${REPORTS_DIRECTORY.trimmedEmptyString}")`,
   throwsReportsDirectoryShouldBeANonEmptyString(() => {
-    new ProtractorJasmine2ParallelHtmlReporter(
-      REPORTS_DIRECTORY.trimmedEmptyString
-    )
+    new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.trimmedEmptyString)
   })
 )
 test(
   `untrimmed empty string ("${REPORTS_DIRECTORY.untrimmedEmptyString}")`,
   throwsReportsDirectoryShouldBeANonEmptyString(() => {
-    new ProtractorJasmine2ParallelHtmlReporter(
-      REPORTS_DIRECTORY.untrimmedEmptyString
-    )
+    new ProtractorJasmine2ParallelHtmlReporter(REPORTS_DIRECTORY.untrimmedEmptyString)
   })
 )
 
-test = scenario.describe(
-  `should throw "reports directory should be a string" ${given}`
-)
+test = scenario.describe(`should throw "reports directory should be a string" ${given}`)
 test(
   `null`,
   throwsReportsDirectoryShouldBeAString(() => {
