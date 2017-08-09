@@ -8,9 +8,13 @@ var reporter
 test.beforeEach(() => {
   console.log('before each')
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
+  reporter.foo = 'this is a property'
   console.log('reporter', reporter)
 })
 
+test(`should have property foo`, assert => {
+  assert.true(is.fn(reporter.hasOwnProperty('foo')))
+})
 test(`should have property add`, assert => {
   assert.true(is.fn(reporter.hasOwnProperty('add')))
 })
