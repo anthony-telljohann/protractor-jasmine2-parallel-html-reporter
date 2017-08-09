@@ -5,13 +5,12 @@ import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine
 
 var reporter
 
-test.beforeEach(`construct reporter`, () => {
+test.beforeEach(() => {
+  console.log('before each')
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
+  console.log('reporter', reporter)
 })
 
-test(`foo`, assert => {
-  console.log('reporter', reporter);
-})
 test(`should have property add`, assert => {
   assert.true(is.fn(reporter.hasOwnProperty('add')))
 })
