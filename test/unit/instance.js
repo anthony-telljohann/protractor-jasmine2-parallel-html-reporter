@@ -13,7 +13,7 @@ test(`foo`, assert => {
   console.log('reporter', reporter);
 })
 test(`should have property add`, assert => {
-  assert.true(is.fn(reporter.hasOwnProperty('add'))
+  assert.true(is.fn(reporter.hasOwnProperty('add')))
 })
 test(`should have property consolidateReports`, assert => {
   assert.true(is.fn(reporter.hasOwnProperty('consolidateReports')))
