@@ -15,8 +15,7 @@ const REPORTS_DIRECTORY = {
   object: {}
 }
 const given = `given reports directory is`
-const subject = spec.describe(`constructor`)
-const scenario = subject.describe(`when constructing`)
+const scenario = spec.describe(`constructing`)
 
 var test
 
