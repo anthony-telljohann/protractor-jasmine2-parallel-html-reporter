@@ -18,10 +18,10 @@ test(t => {
   t.true(is.fn(t.context.reporter.consolidateReports))
 })
 
-test(`add should be a function`, assert => {
+test(`add should be a function`, t => {
   t.true(is.fn(reporter.add))
 })
-test(`consolidateReports should be a function`, assert => {
+test(`consolidateReports should be a function`, t => {
   t.true(is.fn(reporter.consolidateReports))
 })
 
