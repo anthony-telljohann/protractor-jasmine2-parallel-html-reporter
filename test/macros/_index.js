@@ -15,5 +15,5 @@ export isFunction
 function isInstanceOf(t, input, constructor) {
   t.true(is.instance(input, constructor))
 }
-isInstanceOf.title = (description, input, constructor) => ``.trim();
+isInstanceOf.title = (description, input, constructor) => `${description} is an instance of ${constructor.name}`.trim();
 export isInstanceOf
