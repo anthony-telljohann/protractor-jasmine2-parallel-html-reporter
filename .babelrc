@@ -16,7 +16,17 @@
     },
     "test": {
       "presets": ["@ava/stage-4"],
-      "plugins": ["istanbul"]
+      "plugins": [
+        "istanbul",
+        [
+          "module-resolver", {
+            "alias": {
+              "protractor-jasmine2-parallel-html-reporter": "./lib/protractor-jasmine2-parallel-html-reporter.js",
+              "macros": "./test/helpers/macros.js"
+            }
+          }
+        ],
+      ]
     }
   }
 }
