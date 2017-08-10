@@ -4,52 +4,26 @@ import path from 'path'
 import ProtractorJasmine2HtmlReporter from 'protractor-jasmine2-html-reporter'
 import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
 
+import browserStub from './stubs/_browser-stub.js'
+import jasmineStub from './stubs/_jasmine-stub.js'
+
+
 var protractorJasmine2HtmlReporter
 var protractorJasmine2ParallelHtmlReporter
 var fakeCapabilities
 var fakeEnv
 var mockCapability
-var temporaryDirectory
+var temporaryDirectory = 'protractor-jasmine2-parallel-html-reports-tmp/'
 
-// import browserStub
-
-// import jasmineStub
-// import mockCapability
-
-test.before(async () => {
-  global.browser = {
-    getCapabilities: sinon.stub()
-  }
-
-  global.jasmine = {
-    getEnv: sinon.stub()
-  }
-
-  temporaryDirectory = 'protractor-jasmine2-parallel-html-reports-tmp/'
-
-  mockCapability = {
-    platform: 'linux',
-    browserName: 'chrome',
-    version: 'beta'
-  }
-
-  fakeCapabilities = {
-    get: sinon.stub()
-  }
-  fakeCapabilities.get.withArgs('platform').returns(mockCapability.platform)
-  fakeCapabilities.get.withArgs('browserName').returns(mockCapability.browserName)
-  fakeCapabilities.get.withArgs('version').returns(mockCapability.version)
-  browser.getCapabilities.resolves(fakeCapabilities)
-
-  fakeEnv = {
-    addReporter: sinon.stub()
-  }
-  jasmine.getEnv.withArgs().returns(fakeEnv)
-
+test.beforeEach(async t => {
+  global.browser = browserStub
+  global.jasmine = jasmineStub
   protractorJasmine2HtmlReporter = new ProtractorJasmine2HtmlReporter()
-
-  protractorJasmine2ParallelHtmlReporter = new ProtractorJasmine2ParallelHtmlReporter()
+  protractorJasmine2ParallelHtmlReporter = new ProtractorJasmine2ParallelHtmlReporter() 
   await protractorJasmine2ParallelHtmlReporter.add()
+  t.context.browser = global.browser
+  t.context.jasmine = global.jasmine
+//   t.context.addedReporter = global.jasmine.getEnv().addReporter.getCall(0).args[0]
 })
 
 test('should get browser capabilities once', t => {
