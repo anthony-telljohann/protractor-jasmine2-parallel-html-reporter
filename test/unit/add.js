@@ -2,7 +2,7 @@ import test from 'ava'
 import sinon from 'sinon'
 import path from 'path'
 import ProtractorJasmine2HtmlReporter from 'protractor-jasmine2-html-reporter'
-import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
+import ProtractorJasmine2ParallelHtmlReporter from 'protractor-jasmine2-parallel-html-reporter'
 
 import browserStub from './stubs/_browser-stub.js'
 import jasmineStub from './stubs/_jasmine-stub.js'
