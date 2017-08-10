@@ -1,0 +1,6 @@
+export { isFunction }
+
+function isFunction(t, input) {
+  t.true(is.fn(input))
+}
+isFunction.title = (title, input) => `${input.name} is a function`.trim();
