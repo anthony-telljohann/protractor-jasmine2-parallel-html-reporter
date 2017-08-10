@@ -11,13 +11,8 @@ var fakeEnv
 var mockCapability
 var temporaryDirectory
 
-// move to test/functional/stubs/_browser.js
-// move to test/functional/stubs/_jasmine.js
-// move to test/functional/stubs/_capability.js
-// move to test/functional/mocks/_capability.js
-// move to test/functional/mocks/_jasmine-env.js
-
 // import browserStub
+
 // import jasmineStub
 // import mockCapability
 
@@ -61,6 +56,18 @@ test('should get browser capabilities once', t => {
   t.true(browser.getCapabilities.calledOnce)
 })
 
+test('should get capabilities platform once', t => {
+  t.true(browser.getCapabilities.get.withArgs('platform').calledOnce)
+})
+
+test('should get capabilities version once', t => {
+  t.true(browser.getCapabilities.get.withArgs('version').calledOnce)
+})
+
+test('should get capabilities platform once', t => {
+  t.true(browser.getCapabilities.get.withArgs('platform').calledOnce)
+})
+
 test('should get jasmine environment once', t => {
   t.true(jasmine.getEnv.calledOnce)
 })
@@ -71,22 +78,22 @@ test('should add reporter to jasmine environment once', t => {
 
 // import is
 // assert.true(is.instance(jasmine.getEnv().addReporter.getCall(0).args[0], ProtractorJasmine2HtmlReporter))
-test('reporter should be ProtractorJasmine2HtmlReporter', t => {
+test('added reporter should be ProtractorJasmine2HtmlReporter', t => {
   t.is(typeof jasmine.getEnv().addReporter.getCall(0).args[0], typeof protractorJasmine2HtmlReporter)
 })
 
-test('reporter should save reports in temporary-directory/platform/browserName/version/', t => {
+test('added reporter should save reports in temporary-directory/platform/browserName/version/', t => {
   t.is(jasmine.getEnv().addReporter.getCall(0).args[0].savePath, path.join(temporaryDirectory, mockCapability.platform, mockCapability.browserName, mockCapability.version))
 })
 
-test('reporter should not clean destination', t => {
+test('added reporter should not clean destination', t => {
   t.false(jasmine.getEnv().addReporter.getCall(0).args[0].cleanDestination)
 })
 
-test('reporter should not consolidate all', t => {
+test('added reporter should not consolidate all', t => {
   t.false(jasmine.getEnv().addReporter.getCall(0).args[0].consolidateAll)
 })
 
-test('reporter should not take screenshots', t => {
+test('added reporter should not take screenshots', t => {
   t.false(jasmine.getEnv().addReporter.getCall(0).args[0].takeScreenshots)
 })
