@@ -6,7 +6,7 @@ import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine
 
 import browserStub from './stubs/_browser-stub.js'
 import jasmineStub from './stubs/_jasmine-stub.js'
-
+import capabilityMock from './mocks/_capability-mock.js'
 
 var protractorJasmine2HtmlReporter
 var protractorJasmine2ParallelHtmlReporter
@@ -57,7 +57,7 @@ test('added reporter should be ProtractorJasmine2HtmlReporter', t => {
 })
 
 test('added reporter should save reports in temporary-directory/platform/browserName/version/', t => {
-  t.is(jasmine.getEnv().addReporter.getCall(0).args[0].savePath, path.join(temporaryDirectory, mockCapability.platform, mockCapability.browserName, mockCapability.version))
+  t.is(jasmine.getEnv().addReporter.getCall(0).args[0].savePath, path.join(temporaryDirectory, capabilityMock.platform, capabilityMock.browserName, capabilityMock.version))
 })
 
 test('added reporter should not clean destination', t => {
