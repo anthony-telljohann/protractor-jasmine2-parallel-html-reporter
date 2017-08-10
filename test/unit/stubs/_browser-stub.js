@@ -1,5 +1,5 @@
 import sinon from 'sinon'
 
-export default const {
+export default {
   getCapabilities: sinon.stub()
 }
