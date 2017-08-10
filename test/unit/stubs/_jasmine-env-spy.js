@@ -1,6 +1,6 @@
 import sinon from 'sinon'
 
-var addReporter = sinon.stub()
+const addReporter = sinon.spy()
 
 export default {
   addReporter
