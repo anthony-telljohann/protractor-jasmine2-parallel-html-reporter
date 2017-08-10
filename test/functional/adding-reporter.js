@@ -1,4 +1,7 @@
 import test from 'ava'
-import { reporter } from '../_reporter.js'
+import ProtractorJasmine2ParallelHtmlReporter from '../../lib/protractor-jasmine2-parallel-html-reporter.js'
+import { hasFunction } from '../macros/_index.js'
 
-test('should add', isFunction, reporter.add)
+const reporter = new ProtractorJasmine2ParallelHtmlReporter();
+
+test(hasFunction, reporter, 'add')
