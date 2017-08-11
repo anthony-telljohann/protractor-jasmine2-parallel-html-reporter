@@ -18,17 +18,22 @@
       "presets": ["@ava/stage-4"],
       "plugins": [
         "istanbul",
-        ["module-resolver", {
-          "root": ["./"],
-          "alias": {
-            "protractor-jasmine2-parallel-html-reporter": "./lib/protractor-jasmine2-parallel-html-reporter.js",
-            "fixtures": "./test/helpers/fixtures/index.js",
-            "macros": "./test/helpers/macros/index.js",
-            "mocks": "./test/helpers/mocks/index.js",
-            "spies": "./test/helpers/spies/index.js",
-            "stubs": "./test/helpers/stubs/index.js"
-          }
-        }]
+        ["babel-plugin-aliases", [{
+          "path": "/lib",
+          "alias": "lib"
+        }, {
+          "path": "/test/helpers/fixtures",
+          "alias": "fixtures"
+        }, {
+          "path": "/test/helpers/mocks",
+          "alias": "mocks"
+        }, {
+          "path": "/test/helpers/spies",
+          "alias": "spies"
+        }, {
+          "path": "/test/helpers/stubs",
+          "alias": "stubs"
+        }]]
       ]
     }
   }
