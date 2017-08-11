@@ -3,7 +3,7 @@ import test from 'ava'
 import path from 'path'
 import glob from 'glob-promise'
 import { createFileAsync, writeFileAsync, removeAsync } from 'fs-extra-promise'
-import ProtractorJasmine2ParallelHtmlReporter from 'lib/protractor-jasmine2-parallel-html-reporter.js'
+import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
 
 // move to lib/defaults
 // import from lib/defaults
