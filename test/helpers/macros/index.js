@@ -1,4 +1,5 @@
 import is from 'is'
+import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
 
 const throwsError = constructor => messsage => (t, input) => {
   const error = t.throws(() => { input() }, constructor)
