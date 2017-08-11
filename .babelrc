@@ -21,10 +21,11 @@
         ["module-resolver", {
           "alias": {
             "protractor-jasmine2-parallel-html-reporter": "./lib/protractor-jasmine2-parallel-html-reporter.js",
-            "macros": "./test/helpers/macros",
-            "mocks": "./test/helpers/mocks",
-            "spies": "./test/helpers/spies",
-            "stubs": "./test/helpers/stubs"
+            "fixtures": "./test/helpers/fixtures/index.js",
+            "macros": "./test/helpers/macros/index.js",
+            "mocks": "./test/helpers/mocks/index.js",
+            "spies": "./test/helpers/spies/index.js",
+            "stubs": "./test/helpers/stubs/index.js"
           }
         }]
       ]
