@@ -63,10 +63,6 @@
   "files": ["src"],
   "ava": {
     "babel": {
-      "presets": [
-        "@ava/stage-4",
-        "@ava/babel-preset-transform-test-files"
-      ],
       "plugins": [
         ["babel-plugin-aliases", [{
           "path": "/lib",
