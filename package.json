@@ -62,26 +62,6 @@
   "homepage": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter#readme",
   "files": ["src"],
   "ava": {
-    "babel": {
-      "plugins": [
-        ["babel-plugin-aliases", [{
-          "path": "/lib",
-          "alias": "lib"
-        }, {
-          "path": "/test/helpers/fixtures",
-          "alias": "fixtures"
-        }, {
-          "path": "/test/helpers/mocks",
-          "alias": "mocks"
-        }, {
-          "path": "/test/helpers/spies",
-          "alias": "spies"
-        }, {
-          "path": "/test/helpers/stubs",
-          "alias": "stubs"
-        }]]
-      ]
-    },
     "require": ["babel-register"],
     "color": true,
     "concurrency": 25,
