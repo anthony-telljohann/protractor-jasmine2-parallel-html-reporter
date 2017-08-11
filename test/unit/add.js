@@ -3,10 +3,7 @@ import sinon from 'sinon'
 import path from 'path'
 import ProtractorJasmine2HtmlReporter from 'protractor-jasmine2-html-reporter'
 import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
-
-import browserStub from './stubs/_browser-stub.js'
-import jasmineStub from './stubs/_jasmine-stub.js'
-import capabilityMock from './mocks/_capability-mock.js'
+import { browserStub, jasmineStub } from '/test/helpers/mocks/index.js'
 
 var protractorJasmine2HtmlReporter
 var protractorJasmine2ParallelHtmlReporter
