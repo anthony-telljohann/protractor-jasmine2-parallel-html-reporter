@@ -32,15 +32,15 @@
     "ava": "^0.21.0",
     "ava-spec": "^1.1.0",
     "babel-eslint": "^7.2.3",
-    "babel-plugin-module-resolver": "latest",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-module-resolver": "latest",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.24.1",
     "codecov": "^2.3.0",
-    "cross-env": "^5.0.3",
-    "eslint": "^4.3.0",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.4.1",
     "eslint-plugin-prettier": "^2.1.2",
     "nyc": "^11.1.0",
     "prettier": "^1.5.3",
@@ -48,7 +48,7 @@
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-watch": "^4.3.1",
-    "sinon": "^3.0.0"
+    "sinon": "^3.2.0"
   },
   "repository": {
     "type": "git",
@@ -60,23 +60,34 @@
     "url": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter/issues"
   },
   "homepage": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter#readme",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "ava": {
     "babel": {
-      "plugins":[
-        ["module-resolver", {
-          "root": ["./"],
-          "alias": {}
-        }]
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": [
+              "./"
+            ],
+            "alias": {}
+          }
+        ]
       ]
     },
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "color": true,
     "concurrency": 25,
     "verbose": true
   },
   "nyc": {
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "sourceMap": false,
     "instrument": false
   }
