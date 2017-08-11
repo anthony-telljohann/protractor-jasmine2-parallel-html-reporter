@@ -17,23 +17,7 @@
     "test": {
       "presets": ["@ava/stage-4"],
       "plugins": [
-        "istanbul",
-        ["babel-plugin-aliases", [{
-          "path": "/lib",
-          "alias": "lib"
-        }, {
-          "path": "/test/helpers/fixtures",
-          "alias": "fixtures"
-        }, {
-          "path": "/test/helpers/mocks",
-          "alias": "mocks"
-        }, {
-          "path": "/test/helpers/spies",
-          "alias": "spies"
-        }, {
-          "path": "/test/helpers/stubs",
-          "alias": "stubs"
-        }]]
+        "istanbul"
       ]
     }
   }
