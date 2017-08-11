@@ -1,5 +1,5 @@
 import sinon from 'sinon'
-import capabilitiesStub from './capabilities-stub.js'
+import capabilitiesStub from '/test/helpers/stubs/capabilities-stub.js'
 
 const browserStub = {}
 
