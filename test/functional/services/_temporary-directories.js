@@ -5,7 +5,9 @@ import temporaryDirectoryService from '../../../lib/services/temporary-directory
 export default {
   async create() {
     let temporaryDirectory = temporaryDirectoryService.get()
-    let temporaryDirectoryEntries = await entriesService.getAll(temporaryDirectory)
+    let temporaryDirectoryEntries = await entriesService.getAll(
+      temporaryDirectory
+    )
     return filterReportDirectories(temporaryDirectoryEntries)
   }
 }

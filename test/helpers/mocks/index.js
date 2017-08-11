@@ -1,5 +1,3 @@
-export const capability = {
-  platform: 'linux',
-  browserName: 'chrome',
-  version: 'beta'
-}
+import capabilitiesMock from './capabilities-mock.js'
+
+export { capabilitiesMock }

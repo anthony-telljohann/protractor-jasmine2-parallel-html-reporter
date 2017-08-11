@@ -7,7 +7,8 @@ import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-par
 
 // move to lib/defaults
 // import from lib/defaults
-const TEMPORARY_REPORTS_DIRECTORY = 'protractor-jasmine2-parallel-html-reports-tmp/'
+const TEMPORARY_REPORTS_DIRECTORY =
+  'protractor-jasmine2-parallel-html-reports-tmp/'
 const REPORTS_DIRECTORY = 'reports/'
 
 //move to test/function/_temporaryReports
@@ -24,7 +25,7 @@ var consolidatedReports
 
 //move to temporaryReports.create()
 //move to temporaryReports.read()
-test.beforeEach('generate reports', async () => {
+test.beforeEach('generate reports', async t => {
   PLATFORMS.add('macOS 10.12')
   PLATFORMS.add('Windows 10')
   PLATFORMS.add('Linux')
@@ -43,7 +44,13 @@ test.beforeEach('generate reports', async () => {
             let fileName = randomatic('A', 10) + '.html'
             let data = randomatic('A', 10)
             REPORTS.add({
-              file: path.join(TEMPORARY_REPORTS_DIRECTORY, platform, browser, version, fileName),
+              file: path.join(
+                TEMPORARY_REPORTS_DIRECTORY,
+                platform,
+                browser,
+                version,
+                fileName
+              ),
               data: `<html>${data}</html>`
             })
           })
@@ -53,14 +60,23 @@ test.beforeEach('generate reports', async () => {
   )
   reports = Array.from(REPORTS)
   reporter = new ProtractorJasmine2ParallelHtmlReporter()
-  await Promise.all(reports.map(report => createFileAsync(report.file).then(() => writeFileAsync(report.file, report.data))))
+  await Promise.all(
+    reports.map(report =>
+      createFileAsync(report.file).then(() =>
+        writeFileAsync(report.file, report.data)
+      )
+    )
+  )
   await reporter.consolidateReports()
   let foundReports = await glob(REPORTS_DIRECTORY_PATTERN)
   consolidatedReports = foundReports
 })
 
 test('should consolidate a report for each platform, browser, and version', t => {
-  t.is(PLATFORMS.size * BROWSERS.size * VERSIONS.size, consolidatedReports.length)
+  t.is(
+    PLATFORMS.size * BROWSERS.size * VERSIONS.size,
+    consolidatedReports.length
+  )
 })
 
 //move to temporaryReportsDirectory.remove()

@@ -1,11 +1,13 @@
 import sinon from 'sinon'
-import { capabilityMock } from '/test/helpers/mocks/index.js'
+import { capabilitiesMock } from 'mocks'
 
 const capabilitiesStub = {}
 
 capabilitiesStub.get = sinon.stub()
-capabilitiesStub.get.withArgs('platform').returns(capabilityMock.platform)
-capabilitiesStub.get.withArgs('browserName').returns(capabilityMock.browserName)
-capabilitiesStub.get.withArgs('version').returns(capabilityMock.version)
+capabilitiesStub.get.withArgs('platform').returns(capabilitiesMock.platform)
+capabilitiesStub.get
+  .withArgs('browserName')
+  .returns(capabilitiesMock.browserName)
+capabilitiesStub.get.withArgs('version').returns(capabilitiesMock.version)
 
-export default capabilitiesStub;
+export default capabilitiesStub

@@ -1,5 +1,5 @@
 import sinon from 'sinon'
-import { jasmineEnvSpy } from '/test/helpers/spies/index.js'
+import { jasmineEnvSpy } from 'spies'
 
 const jasmineStub = {}
 

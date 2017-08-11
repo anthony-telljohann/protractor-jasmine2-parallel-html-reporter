@@ -6,13 +6,16 @@ var reporter
 
 test.beforeEach(t => {
 	reporter = new ProtractorJasmine2ParallelHtmlReporter()
-	console.log(`reporter in add`, reporter)
+	console.log(`reporter in consolidateReports`, reporter)
 })
 
 test(t => {
 	t.true(true)
 })
 
-// test(is.aFunction, protractorJasmine2ParallelHtmlReporter.add)
-// test(resolves.anUndefined, reporter.add())
-// test(returns.aPromise, reporter.add())
+// test.only(
+// 	is.aFunction,
+// 	protractorJasmine2ParallelHtmlReporter.consolidateReports
+// )
+// test(returns.aPromise, reporter.consolidateReports())
+// test(resolves.anUndefined, reporter.consolidateReports())
