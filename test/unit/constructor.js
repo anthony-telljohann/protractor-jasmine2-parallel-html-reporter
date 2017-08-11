@@ -1,6 +1,6 @@
 import spec from 'ava-spec'
-import { isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from 'macros'
-import ProtractorJasmine2ParallelHtmlReporter from 'protractor-jasmine2-parallel-html-reporter'
+import { isInstanceOfProtractorJasmine2ParallelHtmlReporter as returnsInstance, throwsReportsDirectoryShouldBeANonEmptyString, throwsReportsDirectoryShouldBeAString } from 'macros/index.js'
+import ProtractorJasmine2ParallelHtmlReporter from 'lib/protractor-jasmine2-parallel-html-reporter.js'
 
 const REPORTS_DIRECTORY = {
   trimmedEmptyString: '',
