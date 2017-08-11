@@ -29,8 +29,8 @@ export function isInstanceOfProtractorJasmine2ParallelHtmlReporter(t, input) {
 }
 isInstanceOfProtractorJasmine2ParallelHtmlReporter.title = isInstanceOf.title
 
-export const throwsReportsDirectoryShouldBeANonEmptyString = throwsTypeError(REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING)
-throwsReportsDirectoryShouldBeANonEmptyString.title = (description, input) => `${description} should thow TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_NON_EMPTY_STRING}"`.trim();
+export const throwsReportsDirectoryShouldBeANonEmptyString = throwsTypeError('foo')
+throwsReportsDirectoryShouldBeANonEmptyString.title = (description, input) => `${description} should thow TypeError "foo"`.trim();
 
-export const throwsReportsDirectoryShouldBeAString = throwsTypeError(REPORTS_DIRECTORY_SHOULD_BE_A_STRING)
-throwsReportsDirectoryShouldBeANonEmptyString.title = (description, input) => `${description} should thow TypeError "${REPORTS_DIRECTORY_SHOULD_BE_A_STRING}"`.trim();
+export const throwsReportsDirectoryShouldBeAString = throwsTypeError('bar')
+throwsReportsDirectoryShouldBeANonEmptyString.title = (description, input) => `${description} should thow TypeError "bar"`.trim();
