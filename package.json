@@ -63,6 +63,7 @@
   "files": ["src"],
   "ava": {
     "babel": {
+      "presets": ["@ava/stage-4"],
       "plugins": [
         ["babel-plugin-aliases", [{
           "path": "/lib",
