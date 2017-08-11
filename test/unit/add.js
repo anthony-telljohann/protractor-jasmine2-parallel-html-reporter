@@ -12,9 +12,10 @@ var fakeEnv
 var mockCapability
 var temporaryDirectory = 'protractor-jasmine2-parallel-html-reports-tmp/'
 
+global.browser = browserStub
+global.jasmine = jasmineStub
+
 test.beforeEach(async t => {
-  global.browser = browserStub
-  global.jasmine = jasmineStub
   protractorJasmine2HtmlReporter = new ProtractorJasmine2HtmlReporter()
   protractorJasmine2ParallelHtmlReporter = new ProtractorJasmine2ParallelHtmlReporter() 
   await protractorJasmine2ParallelHtmlReporter.add()
@@ -24,19 +25,19 @@ test.beforeEach(async t => {
 })
 
 test('should get browser capabilities once', t => {
-  t.true(browser.getCapabilities.calledOnce)
+  t.true(browserStub.getCapabilities.calledOnce)
 })
 
 test('should get capabilities platform once', t => {
-  t.true(browser.getCapabilities.get.withArgs('platform').calledOnce)
+  t.true(browserStub.getCapabilities.get.withArgs('platform').calledOnce)
 })
 
 test('should get capabilities version once', t => {
-  t.true(browser.getCapabilities.get.withArgs('version').calledOnce)
+  t.true(browserStub.getCapabilities.get.withArgs('version').calledOnce)
 })
 
 test('should get capabilities platform once', t => {
-  t.true(browser.getCapabilities.get.withArgs('platform').calledOnce)
+  t.true(browserStub.getCapabilities.get.withArgs('platform').calledOnce)
 })
 
 test('should get jasmine environment once', t => {
