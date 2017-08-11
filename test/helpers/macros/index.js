@@ -26,7 +26,7 @@ isInstanceOf.title = (description, input, constructor) => `${description} is an 
 
 //lib specific
 export function isInstanceOfProtractorJasmine2ParallelHtmlReporter(t, input) {
-  isInstanceOf(t, input, ProtractorJasmine2ParallelHtmlReporter)
+  return isInstanceOf(t, input, ProtractorJasmine2ParallelHtmlReporter)
 }
 isInstanceOfProtractorJasmine2ParallelHtmlReporter.title = isInstanceOf.title
 
