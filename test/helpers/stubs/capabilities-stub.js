@@ -1,5 +1,5 @@
 import sinon from 'sinon'
-import { capabilityMock } from 'mocks'
+import { capabilityMock } from '/test/helpers/mocks/index.js'
 
 const capabilitiesStub = {}
 
