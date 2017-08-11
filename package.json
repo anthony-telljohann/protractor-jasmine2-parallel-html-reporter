@@ -83,7 +83,7 @@
         }]]
       ]
     },
-    "require": ["babel-register", "babel-polyfill"],
+    "require": ["babel-register"],
     "color": true,
     "concurrency": 25,
     "verbose": true
