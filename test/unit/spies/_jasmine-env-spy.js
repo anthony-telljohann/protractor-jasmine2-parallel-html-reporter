@@ -1,7 +1,7 @@
 import sinon from 'sinon'
 
-const addReporter = sinon.spy()
+const jasmineEnv = {}
 
-export default {
-  addReporter
-}
+jasmineEnv.addReporter = sinon.spy()
+
+export default jasmineEnv
