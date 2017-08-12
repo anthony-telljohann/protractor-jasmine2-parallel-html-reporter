@@ -82,7 +82,10 @@
     "require": ["babel-register"],
     "color": true,
     "concurrency": 25,
-    "verbose": true
+    "verbose": true,
+    "failFast": false,
+    "failWithoutAssertions": false,
+    "powerAssert": true
   },
   "nyc": {
     "require": ["babel-register"],

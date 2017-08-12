@@ -25,7 +25,7 @@ var consolidatedReports
 
 //move to temporaryReports.create()
 //move to temporaryReports.read()
-test.beforeEach('generate reports', async t => {
+test.beforeEach('generate reports', async () => {
   PLATFORMS.add('macOS 10.12')
   PLATFORMS.add('Windows 10')
   PLATFORMS.add('Linux')

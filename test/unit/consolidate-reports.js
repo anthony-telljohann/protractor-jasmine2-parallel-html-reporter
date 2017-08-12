@@ -1,21 +1,9 @@
 import test from 'ava'
 import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
-import { is, resolves, returns } from 'macros'
+import { is } from 'macros'
 
-var reporter
+const reporter = new ProtractorJasmine2ParallelHtmlReporter()
 
-test.beforeEach(t => {
-	reporter = new ProtractorJasmine2ParallelHtmlReporter()
-	console.log(`reporter in consolidateReports`, reporter)
-})
-
-test(t => {
-	t.true(true)
-})
-
-// test.only(
-// 	is.aFunction,
-// 	protractorJasmine2ParallelHtmlReporter.consolidateReports
-// )
-// test(returns.aPromise, reporter.consolidateReports())
-// test(resolves.anUndefined, reporter.consolidateReports())
+test(`is a function`, is.fn(reporter.consolidateReports))
+test(`returns a promise`, is.promise(reporter.consolidateReports()))
+test(`resolves undefined`, is.undef(reporter.consolidateReports()))

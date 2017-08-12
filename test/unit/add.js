@@ -1,18 +1,12 @@
 import test from 'ava'
 import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
-import { is, resolves, returns } from 'macros'
+import { browserStub, jasmineStub } from 'stubs'
+import { is } from 'macros'
 
-var reporter
+global.browser = browserStub
+global.jasmine = jasmineStub
+const reporter = new ProtractorJasmine2ParallelHtmlReporter()
 
-test.beforeEach(t => {
-	reporter = new ProtractorJasmine2ParallelHtmlReporter()
-	console.log(`reporter in add`, reporter)
-})
-
-test(t => {
-	t.true(true)
-})
-
-// test(is.aFunction, protractorJasmine2ParallelHtmlReporter.add)
-// test(resolves.anUndefined, reporter.add())
-// test(returns.aPromise, reporter.add())
+test(`is a function`, is.fn(reporter.add))
+test(`returns a promise`, is.promise(reporter.add()))
+test(`resolves undefined`, is.undef(reporter.add()))
