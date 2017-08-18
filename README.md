@@ -1,5 +1,7 @@
 # protractor-jasmine2-parallel-html-reporter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter.svg?branch=master)](https://travis-ci.org/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter)
 [![codecov](https://codecov.io/gh/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter/branch/master/graph/badge.svg)](https://codecov.io/gh/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter)
 [![NPM version](https://img.shields.io/npm/v/protractor-jasmine2-parallel-html-reporter.svg)](https://www.npmjs.com/package/protractor-jasmine2-parallel-html-reporter)
