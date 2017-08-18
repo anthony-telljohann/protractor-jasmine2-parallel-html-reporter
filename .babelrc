@@ -1,9 +1,24 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "node": "4"
-      }
-    }]
-  ]
+  "env": {
+    "production": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "4"
+            },
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": ["external-helpers", "transform-runtime"]
+    },
+    "test": {
+      "presets": ["@ava/stage-4"],
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
 }

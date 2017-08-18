@@ -2,23 +2,23 @@
   "name": "protractor-jasmine2-parallel-html-reporter",
   "version": "1.0.0",
   "description": "Creates html reports for protractor jasmine2 tests run in parallel. Consolidates reports by platform, browser, and version. Supports multicapabilities and shardTestFiles.",
-  "main": "src/protractor-jasmine2-parallel-html-reporter.cjs.js",
-  "module": "src/protractor-jasmine2-parallel-html-reporter.es6.js",
+  "main": "src/protractor-jasmine2-parallel-html-reporter.js",
+  "module": "src/protractor-jasmine2-parallel-html-reporter.mjs",
   "scripts": {
-    "build": "rollup -c",
+    "build": "cross-env NODE_ENV=production BABEL_ENV=test rollup -c",
     "clean": "npm run clean:coverage && npm run clean:nyc_output && npm run clean:src",
     "clean:coverage": "rm -rf coverage",
     "clean:nyc_output": "rm -rf .nyc_output",
     "clean:src": "rm -rf src",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "dev": "rollup -c -w",
+    "coverage": "npm run report:lcov && codecov",
     "lint": "eslint --fix lib test",
-    "posttest": "npm run report",
+    "posttest": "npm run report:html",
     "prebuild": "npm run clean && npm run lint",
-    "prepare": "npm test",
-    "pretest": "npm run build",
-    "report": "nyc report --reporter=html",
-    "test": "nyc ava"
+    "prepublishOnly": "npm test",
+    "report:html": "nyc report --reporter=html",
+    "report:lcov": "nyc report --reporter=text-lcov > coverage.lcov",
+    "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc ava",
+    "watch": "cross-env NODE_ENV=test BABEL_ENV=test ava --watch"
   },
   "dependencies": {
     "consolidator": "^1.0.0",
@@ -30,12 +30,17 @@
   },
   "devDependencies": {
     "ava": "^0.21.0",
+    "ava-spec": "^1.1.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
-    "babelrc-rollup": "^3.0.0",
-    "codecov": "^2.2.0",
-    "eslint": "^4.3.0",
+    "babel-register": "^6.24.1",
+    "codecov": "^2.3.0",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.4.1",
     "eslint-plugin-prettier": "^2.1.2",
     "nyc": "^11.1.0",
     "prettier": "^1.5.3",
@@ -43,7 +48,7 @@
     "rollup": "^0.47.4",
     "rollup-plugin-babel": "^3.0.1",
     "rollup-watch": "^4.3.1",
-    "sinon": "^3.0.0"
+    "sinon": "^3.2.0"
   },
   "repository": {
     "type": "git",
@@ -57,12 +62,34 @@
   "homepage": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter#readme",
   "files": ["src"],
   "ava": {
-    "require": ["babel-core/register"],
+    "babel": {
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": ["./"],
+            "alias": {
+              "fixtures": "/test/helpers/fixtures",
+              "macros": "/test/helpers/macros",
+              "mocks": "/test/helpers/mocks",
+              "spies": "/test/helpers/spies",
+              "stubs": "/test/helpers/stubs"
+            }
+          }
+        ]
+      ]
+    },
+    "require": ["babel-register"],
     "color": true,
     "concurrency": 25,
+    "verbose": true,
     "failFast": false,
-    "failWithoutAssertions": true,
-    "tap": false,
-    "verbose": true
+    "failWithoutAssertions": false,
+    "powerAssert": true
+  },
+  "nyc": {
+    "require": ["babel-register"],
+    "sourceMap": false,
+    "instrument": false
   }
 }

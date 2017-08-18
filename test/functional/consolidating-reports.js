@@ -3,20 +3,28 @@ import test from 'ava'
 import path from 'path'
 import glob from 'glob-promise'
 import { createFileAsync, writeFileAsync, removeAsync } from 'fs-extra-promise'
-import ProtractorJasmine2ParallelHtmlReporter from '../src/protractor-jasmine2-parallel-html-reporter.es6.js'
+import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-parallel-html-reporter.js'
 
+// move to lib/defaults
+// import from lib/defaults
 const TEMPORARY_REPORTS_DIRECTORY =
   'protractor-jasmine2-parallel-html-reports-tmp/'
 const REPORTS_DIRECTORY = 'reports/'
+
+//move to test/function/_temporaryReports
+//import temporaryReporters
 const REPORTS_DIRECTORY_PATTERN = REPORTS_DIRECTORY + '*.html'
 const BROWSERS = new Set()
 const PLATFORMS = new Set()
 const REPORTS = new Set()
 const VERSIONS = new Set()
+
 var reporter
 var reports
 var consolidatedReports
 
+//move to temporaryReports.create()
+//move to temporaryReports.read()
 test.beforeEach('generate reports', async () => {
   PLATFORMS.add('macOS 10.12')
   PLATFORMS.add('Windows 10')
@@ -71,6 +79,7 @@ test('should consolidate a report for each platform, browser, and version', t =>
   )
 })
 
+//move to temporaryReportsDirectory.remove()
 test.afterEach('delete reports', async () => {
   await removeAsync('reports/')
 })
