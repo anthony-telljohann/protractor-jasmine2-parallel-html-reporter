@@ -6,6 +6,8 @@ import ProtractorJasmine2ParallelHtmlReporter from '/lib/protractor-jasmine2-par
 import { browserStub, jasmineStub } from 'stubs'
 import { capabilitiesMock } from 'mocks'
 
+
+//import from lib
 const protractorJasmine2ParallelHtmlReporter = new ProtractorJasmine2ParallelHtmlReporter()
 const temporaryDirectory = 'protractor-jasmine2-parallel-html-reports-tmp/'
 
