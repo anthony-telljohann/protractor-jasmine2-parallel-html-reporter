@@ -1,6 +1,6 @@
 {
   "name": "protractor-jasmine2-parallel-html-reporter",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Creates html reports for protractor jasmine2 tests run in parallel. Consolidates reports by platform, browser, and version. Supports multicapabilities and shardTestFiles.",
   "main": "src/protractor-jasmine2-parallel-html-reporter.js",
   "module": "src/protractor-jasmine2-parallel-html-reporter.mjs",
@@ -18,7 +18,8 @@
     "report:html": "nyc report --reporter=html",
     "report:lcov": "nyc report --reporter=text-lcov > coverage.lcov",
     "test": "cross-env NODE_ENV=test BABEL_ENV=test nyc ava",
-    "watch": "cross-env NODE_ENV=test BABEL_ENV=test ava --watch"
+    "watch": "cross-env NODE_ENV=test BABEL_ENV=test ava --watch",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "consolidator": "^1.0.0",
@@ -48,11 +49,12 @@
     "rollup": "^0.47.4",
     "rollup-plugin-babel": "^3.0.1",
     "rollup-watch": "^4.3.1",
-    "sinon": "^3.2.0"
+    "sinon": "^3.2.0",
+    "semantic-release": "^7.0.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter.git"
+    "url": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter.git"
   },
   "author": "Anthony Telljohann-Smothers",
   "license": "MIT",
@@ -60,14 +62,18 @@
     "url": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter/issues"
   },
   "homepage": "https://github.com/atelljohannsmothers/protractor-jasmine2-parallel-html-reporter#readme",
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "ava": {
     "babel": {
       "plugins": [
         [
           "module-resolver",
           {
-            "root": ["./"],
+            "root": [
+              "./"
+            ],
             "alias": {
               "fixtures": "/test/helpers/fixtures",
               "macros": "/test/helpers/macros",
@@ -79,7 +85,9 @@
         ]
       ]
     },
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "color": true,
     "concurrency": 25,
     "verbose": true,
@@ -88,7 +96,9 @@
     "powerAssert": true
   },
   "nyc": {
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "sourceMap": false,
     "instrument": false
   }
