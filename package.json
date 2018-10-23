@@ -44,7 +44,7 @@
     "eslint-plugin-prettier": "^2.1.2",
     "nyc": "^11.1.0",
     "prettier": "^1.5.3",
-    "randomatic": "^1.1.7",
+    "randomatic": "^3.1.1",
     "rollup": "^0.47.4",
     "rollup-plugin-babel": "^3.0.1",
     "rollup-watch": "^4.3.1",
