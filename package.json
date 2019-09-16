@@ -29,7 +29,7 @@
     "walk-sync": "^0.3.2"
   },
   "devDependencies": {
-    "ava": "^0.21.0",
+    "ava": "^2.4.0",
     "ava-spec": "^1.1.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-external-helpers": "^6.22.0",
